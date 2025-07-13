@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: n8n-youtube-automation
+    env: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: yoursecurepass
+      - key: N8N_HOST
+        value: 0.0.0.0
+      - key: N8N_PORT
+        value: 5678
+      - key: WEBHOOK_URL
+        value: https://<REPLACE_WITH_RENDER_URL>
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
